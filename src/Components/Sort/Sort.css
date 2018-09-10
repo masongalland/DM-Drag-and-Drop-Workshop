@@ -1,0 +1,10 @@
+.Sort {
+  width: 50%;
+  margin: 20vh auto;
+}
+
+.sort_item {
+  text-align: center;
+  padding-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
