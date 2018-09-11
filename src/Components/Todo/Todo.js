@@ -7,9 +7,9 @@ class Todo extends Component {
 
     this.state = {
       tasks: [
-        { name: 'Do Stuff', category: 'todo', bgcolor: '#AA4465' },
+        { name: 'Do Stuff', category: 'complete', bgcolor: '#AA4465' },
         { name: 'Skip Rocks', category: 'todo', bgcolor: '#3A606E' },
-        { name: 'Eat Food', category: 'complete', bgcolor: '#4381C1' },
+        { name: 'Eat Food', category: 'todo', bgcolor: '#4381C1' },
       ],
     };
   }

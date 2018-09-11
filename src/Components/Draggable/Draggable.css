@@ -9,6 +9,7 @@
   height: 75px;
   border-radius: 4px;
   background: #5dfdcb;
+  cursor: grab;
 }
 
 .ball_parent {

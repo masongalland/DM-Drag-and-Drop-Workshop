@@ -20,7 +20,7 @@ class App extends Component {
   handleDrag(e, id) {
     console.log('box id : ', id);
     e.dataTransfer.setData('id', id);
-    setTimeout((target => () => (target.style.display = 'none'))(e.target), 0);
+    setTimeout((target => () => (target.style.opacity = 0))(e.target), 0);
   }
 
   handleDrop(e) {
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   dragEnd(e) {
-    e.target.style.display = 'block';
+    e.target.style.opacity = 1;
   }
 
   render() {
