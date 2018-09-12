@@ -6,4 +6,6 @@ This app demonstrates a few different ways to drag and drop elements using [Reac
 
 To experiment with each method of drag and drop in this repo, go into the Javascript files inside each folder within the Components folder. There are comments with instructions/ explanations inside the code.
 
+The "master" branch has pieces of code missing on the `Basic` and `Todo` components. To see the completed app, switch to the branch called "solution"
+
 Here is a descent tutorial on using the native drag and drop api: [css-tricks drag and drop](https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/)
