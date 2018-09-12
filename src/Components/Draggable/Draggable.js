@@ -13,9 +13,9 @@ class ReactDraggable extends Component {
   handleDrag = (e, { deltaX }) => {
     // this method is invoked onDrag (the equivalent of onDragStart with the native drag and drop api)
     // here we get access to all kinds of data. we will use the deltaX to change state based on how far the element is dragged on the x-axis
-    // this.setState(({ scale }) => {
-    //   return { scale: scale + deltaX * 0.006 };
-    // });
+    this.setState(({ scale }) => {
+      return { scale: scale + deltaX * 0.006 };
+    });
   };
 
   render() {
@@ -24,10 +24,10 @@ class ReactDraggable extends Component {
         <div className="yellow_parent">
           {/* wrap elements that you want to give dragging capabilities in the Draggable component */}
           <Draggable
-            // axis="x" // limits movement along the "x", "y", "both", or "non" axes
+            axis="x" // limits movement along the "x", "y", "both", or "non" axes
             // bounds limits the area that the dragged item can be moved in. can be a string of an element, "parent", or an object with coordinates
             bounds={{ top: -100, left: -100, right: 200, bottom: 400 }}
-            // grid={[75, 75]} // makes the dragged element snap to a grid when moved
+            grid={[75, 75]} // makes the dragged element snap to a grid when moved
             onDrag={this.handleDrag}
           >
             <div>
@@ -40,7 +40,7 @@ class ReactDraggable extends Component {
           <Draggable
             bounds="parent"
             // defaultClassNameDragging lets you customize how the element looks when it is being dragged
-            // defaultClassNameDragging="grow"
+            defaultClassNameDragging="grow"
           >
             <div className="ball" />
           </Draggable>

@@ -26,6 +26,13 @@ class Todo extends Component {
   onDrop(e, category) {
     let id = e.dataTransfer.getData('id');
     // instead of using vanilla js to manipulate the DOM, let's setState and change the category of the dragged item to determine which list it is rendered in.
+    var tasks = this.state.tasks.map(task => {
+      if (task.name === id) {
+        task.category = category;
+      }
+      return task;
+    });
+    this.setState({ tasks });
   }
 
   render() {
