@@ -21,14 +21,20 @@ class OrderTasks extends Component {
 
   dragStart(e, i) {
     console.log('dragStart: ', i);
+    // here we are keeping track of the index of the dragged item
+    // instead of using the dataTransfer object, we are using state
     this.setState({ start: i });
   }
 
   drop(e, i) {
     console.log('drop i: ', i);
+    // make copy of state so we don't mutate it directly
     let childrenCopy = this.state.children.slice();
+    // remove dragged item from the array and catch in variable
     let moving = childrenCopy.splice(this.state.start, 1)[0];
+    // add the item back into the array at the position it was dropped
     childrenCopy.splice(i, 0, moving);
+    // setState with the mutated copy of state
     this.setState({ children: childrenCopy });
   }
 
@@ -39,12 +45,12 @@ class OrderTasks extends Component {
   render() {
     console.log(this.state.children);
     let displayList = this.state.children.map((el, i) => {
-      //   console.log(el);
       return (
         <div
           key={i}
           className="draggie sort_item"
           style={{ background: el.props.color }}
+          // --- each draggable item is also a dropzone
           draggable
           onDragStart={e => this.dragStart(e, i)}
           onDragOver={e => this.dragOver(e, i)}

@@ -25,13 +25,7 @@ class Todo extends Component {
 
   onDrop(e, category) {
     let id = e.dataTransfer.getData('id');
-    var tasks = this.state.tasks.map(task => {
-      if (task.name === id) {
-        task.category = category;
-      }
-      return task;
-    });
-    this.setState({ tasks });
+    // instead of using vanilla js to manipulate the DOM, let's setState and change the category of the dragged item to determine which list it is rendered in.
   }
 
   render() {
@@ -46,6 +40,7 @@ class Todo extends Component {
           key={task.name}
           className="draggie task"
           style={{ background: task.bgcolor }}
+          // ------- drag and drop attributes on dragged element ---------
           draggable
           onDragStart={e => this.handleDrag(e, task.name)}
         >
@@ -56,12 +51,18 @@ class Todo extends Component {
 
     return (
       <div className="DragonDrop">
-        <section className="todo container" onDragOver={e => this.allowDrag(e)} onDrop={e => this.onDrop(e, 'todo')}>
+        <section
+          className="todo container"
+          // ------- drag and drop attributes on dropzone ---------
+          onDragOver={this.allowDrag}
+          onDrop={e => this.onDrop(e, 'todo')}
+        >
           <h2>Todo</h2>
           {tasks.todo}
         </section>
         <section
           className="completed container"
+          // ------- drag and drop attributes on dropzone ---------
           onDragOver={e => this.allowDrag(e)}
           onDrop={e => this.onDrop(e, 'complete')}
         >
